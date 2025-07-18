@@ -1,0 +1,74 @@
+.welcome-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+/* =======================
+Main gradient background
+========================== */
+body, #root, .gradient-bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    /* bright, animated gradient background */
+    background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+    background-size: 400% 400%;
+    animation: gradient-pop 14s ease-in-out infinite;
+}
+
+@keyframes gradient-pop {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Card (glass/frosted) effect for main Paper */
+.mui-paper {
+    background: rgba(255, 255, 255, 0.95);
+    /*box-shadow: 0 12px 32px 0 rgba(171, 115, 255, 0.16);*/
+    backdrop-filter: blur(9px);
+    border: 1.5px solid rgba(196, 199, 255, 0.21);
+    border-radius: 30px;
+    box-shadow: 0 8px 24px 0 rgba(32, 32, 56, 0.24), 0 1.5px 9px rgba(171, 115, 255, 0.10);
+    z-index: 1;
+
+}
+
+/* =============================
+Typography: add soft gradients
+============================= */
+h1, .MuiTypography-h3 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #19d4ca 15%, #3a76f2 55%, #b24592 90%);
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+h2, .MuiTypography-h5 {
+    color: #b24592;
+    background: linear-gradient(90deg, #F7971E 40%, #FFD200 75%);
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+}
+
