@@ -12,13 +12,14 @@ Main gradient background
 ========================== */
 body, #root, .gradient-bg {
     min-height: 100vh;
-    min-width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     /* bright, animated gradient background */
     background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
     background-size: 400% 400%;
     animation: gradient-pop 14s ease-in-out infinite;
+    overflow-x: hidden;
 }
 
 @keyframes gradient-pop {
@@ -71,4 +72,3 @@ h2, .MuiTypography-h5 {
     -webkit-text-fill-color: transparent;
     font-size: 1.2rem;
 }
-

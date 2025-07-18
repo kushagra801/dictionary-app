@@ -113,47 +113,48 @@ export default function LetterPage() {
     const {letter} = useParams();
     const upperLetter = letter.toUpperCase();
     const entry = dictionary[upperLetter];
-
-    const imageUrl = "https://via.placeholder.com/200?text=" + (entry?.word || letter);
     const letters = Object.keys(dictionary);
 
-    return (
-        <>
-            <UniverseBackground/>
+     // Get the image path for the current letter
+    const imagePath = `/img/${letter.toLowerCase()}.jpg`;
 
-            <div
-                className="letter-page"
-                style={{
-                    minHeight: "100vh",
-                    minWidth: "100vw",
-                    width: "100vw",
-                    height: "100vh",
-                    display: "flex",
-                    flexDirection: "column", // Changed to column layout
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: "#fafbfc",
-                    boxSizing: "border-box",
-                    padding: "1rem", // Reduced padding
-                    gap: "1.5rem", // Add spacing between elements
-                }}
-            >
-                <div className="letter-content" style={{zIndex: 1}}>
+
+    return (
+        <div style={{
+            position: "relative",
+            minHeight: "100vh",
+            width: "100%",
+            overflow: "auto"
+        }}>
+            <UniverseBackground/>
+            
+            <div className="letter-page">
+                <div className="letter-content">
+                    <div className="letter-image">
+                        <img
+                            src={imagePath}
+                            alt={`${upperLetter} - ${entry?.word || "Not found"}`}
+                            style={{
+                                maxWidth: "100%",
+                                maxHeight: "300px",
+                                borderRadius: "8px",
+                                marginBottom: "20px"
+                            }}
+                        />
+                    </div>
+
                     <div className="text-content">
                         <p className="letter-title">Letter: {upperLetter}</p>
                         <p className="word-display">
                             <strong>{entry?.word || "Not found"}</strong>
                         </p>
-                        <p className="word-description">
-                            {entry?.description || "No description available."}
-                        </p>
-                    </div>
-                    <div className="image-container">
-                        <img src={imageUrl} alt={entry?.word} className="word-image"/>
+                        
+                        <div className="word-description" style={{color: "black"}}>{entry.description}</div>
+                        
                     </div>
                 </div>
 
-                <div className="letter-links" style={{zIndex: 1}}>
+                <div className="letter-links">
                     {letters.map((ltr) => (
                         <Link key={ltr} to={`/letter/${ltr}`} className="letter-link">
                             {ltr}
@@ -161,11 +162,10 @@ export default function LetterPage() {
                     ))}
                 </div>
 
-                <div className="back-link" style={{zIndex: 1}}>
+                <div className="back-link">
                     <Link to="/welcome">← Back to Welcome Page</Link>
                 </div>
             </div>
-        </>
-
+        </div>
     );
 }
