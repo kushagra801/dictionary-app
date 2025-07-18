@@ -116,7 +116,7 @@ export default function LetterPage() {
     const letters = Object.keys(dictionary);
 
      // Get the image path for the current letter
-    const imagePath = `/img/${letter.toLowerCase()}.jpg`;
+    const imagePath = `/dictionary-app/img/${letter.toLowerCase()}.jpg`;
 
 
     return (
@@ -138,7 +138,7 @@ export default function LetterPage() {
                                 maxWidth: "100%",
                                 maxHeight: "300px",
                                 borderRadius: "8px",
-                                marginBottom: "20px"
+                                marginBottom: "10px"
                             }}
                         />
                     </div>
